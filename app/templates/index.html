@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una página romántica dedicada a mi pareja - Una carta interactiva de amor">
+    <title>💕 A & D 💕</title>
+    
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cursor personalizado con brillo -->
+    <div id="cursor-glow"></div>
+    
+    <!-- Fondo de partículas -->
+    <div id="particles-background"></div>
+    
+    <!-- Corazones flotantes de fondo -->
+    <div class="hearts-background">
+        <div class="heart floating-heart"></div>
+        <div class="heart floating-heart"></div>
+        <div class="heart floating-heart"></div>
+        <div class="heart floating-heart"></div>
+        <div class="heart floating-heart"></div>
+    </div>
+    
+    <!-- Barra de navegación flotante -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>Mi Amor</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#hero" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#memories" class="nav-link">Recuerdos</a></li>
+                <li class="nav-item"><a href="#timeline" class="nav-link">Timeline</a></li>
+                <li class="nav-item"><a href="#final" class="nav-link">Final</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="music-toggle" class="music-btn" title="Activar música">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- ==================== SECCIÓN PRINCIPAL ====================  -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <!-- Corazón animado principal -->
+            <div class="heart-container">
+                <div class="heart-beat" id="main-heart">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50,90 C20,70 5,55 5,40 C5,25 15,15 25,15 C35,15 45,25 50,35 C55,25 65,15 75,15 C85,15 95,25 95,40 C95,55 80,70 50,90 Z" 
+                              fill="url(#gradient-heart)" stroke="none"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Definir gradiente para el corazón -->
+            <svg width="0" height="0">
+                <defs>
+                    <linearGradient id="gradient-heart" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ee5a6f;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            
+            <!-- Título principal romántico -->
+            <h1 class="hero-title fade-in">
+                <span class="title-word" style="animation-delay: 0.2s;">Para</span>
+                <span class="title-word" style="animation-delay: 0.4s;">Mi Princesa</span>
+                <span class="title-word" style="animation-delay: 0.6s;">❤️</span>
+            </h1>
+            
+            <!-- Mensaje principal emocional -->
+            <p class="hero-message fade-in" style="animation-delay: 1s;">
+                {{ data.mensaje_principal }}
+            </p>
+            
+            <!-- Flecha hacia abajo animada -->
+            <div class="scroll-indicator fade-in" style="animation-delay: 1.5s;">
+                <span>Desplázate para más</span>
+                <div class="arrow">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Efecto de luz de fondo -->
+        <div class="hero-glow"></div>
+    </section>
+    
+    <!-- ==================== SECCIÓN DE RECUERDOS ====================  -->
+    <section id="memories" class="memories-section">
+        <div class="section-header">
+            <h2 class="section-title">Nuestros Recuerdos</h2>
+            <div class="title-underline"></div>
+        </div>
+        
+        <div class="memories-container">
+            <!-- Foto principal de nosotros -->
+            <div class="memory-main fade-in-up" style="animation-delay: 0.2s;">
+                <div class="memory-photo-wrapper">
+                    <img src="{{ url_for('static', filename='img/nosotros.jpeg') }}" 
+                        alt="Nosotros" 
+                        class="memory-photo"
+                        draggable="false" ondragstart="return false;"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect fill=%22%23ffc0d9%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2220%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ff69b4%22%3ENosotros%3C/text%3E%3C/svg%3E'">
+                    <div class="memory-overlay"></div>
+                    <div class="memory-label">
+                        <i class="fas fa-heart"></i> Nosotros
+                    </div>
+                </div>
+                <p class="memory-description">Nuestro momento perfecto</p>
+            </div>
+            
+            <!-- Galería de recuerdos secundarios -->
+            <div class="memories-grid">
+                <!-- Recuerdo 1 -->
+                <div class="memory-card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="memory-polaroid">
+                            <img src="{{ url_for('static', filename='img/recuerdo1.jpeg') }}" 
+                                alt="Recuerdo 1"
+                                draggable="false" ondragstart="return false;"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22250%22%3E%3Crect fill=%22%23fff5f7%22 width=%22200%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ffb6d9%22%3ERecuerdo 1%3C/text%3E%3C/svg%3E'">
+                        <div class="polaroid-label">M.U.T.</div>
+                    </div>
+                </div>
+                
+                <!-- Recuerdo 2 -->
+                <div class="memory-card fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="memory-polaroid">
+                            <img src="{{ url_for('static', filename='img/recuerdo2.jpeg') }}" 
+                                alt="Recuerdo 2"
+                                draggable="false" ondragstart="return false;"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22250%22%3E%3Crect fill=%22%23fff5f7%22 width=%22200%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ffb6d9%22%3ERecuerdo 2%3C/text%3E%3C/svg%3E'">
+                        <div class="polaroid-label">M.U.T.</div>
+                    </div>
+                </div>
+                
+                <!-- Recuerdo 3 -->
+                <div class="memory-card fade-in-up" style="animation-delay: 0.8s;">
+                    <div class="memory-polaroid">
+                            <img src="{{ url_for('static', filename='img/recuerdo3.jpeg') }}" 
+                                alt="Recuerdo 3"
+                                draggable="false" ondragstart="return false;"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22250%22%3E%3Crect fill=%22%23fff5f7%22 width=%22200%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23ffb6d9%22%3ERecuerdo 3%3C/text%3E%3C/svg%3E'">
+                        <div class="polaroid-label">M.U.T.</div>
+                    </div>
+                </div>
+
+                <!-- Recuerdo 4 -->
+                <div class="memory-card fade-in-up" style="animation-delay: 1s;">
+                    <div class="memory-polaroid">
+                        <img src="{{ url_for('static', filename='img/recuerdo4.jpeg') }}" 
+                             alt="Recuerdo 4"
+                             draggable="false" ondragstart="return false;"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22250%22%3E%3Crect fill=%23fff5f7 width=%22200%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%23ffb6d9%3ERecuerdo%3C/text%3E%3C/svg%3E'">
+                        <div class="polaroid-label">M.U.T.</div>
+                    </div>
+                </div>
+
+                <!-- Recuerdo 5 -->
+                <div class="memory-card fade-in-up" style="animation-delay: 1.2s;">
+                    <div class="memory-polaroid">
+                        <img src="{{ url_for('static', filename='img/recuerdo5.jpeg') }}" 
+                             alt="Recuerdo 5"
+                             draggable="false" ondragstart="return false;"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22250%22%3E%3Crect fill=%23fff5f7 width=%22200%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%23ffb6d9%3ERecuerdo%3C/text%3E%3C/svg%3E'">
+                        <div class="polaroid-label">M.U.T.</div>
+                    </div>
+                </div>
+
+                <!-- Recuerdo 6 -->
+                <div class="memory-card fade-in-up" style="animation-delay: 1.4s;">
+                    <div class="memory-polaroid">
+                        <img src="{{ url_for('static', filename='img/recuerdo6.jpeg') }}" 
+                             alt="Recuerdo 6"
+                             draggable="false" ondragstart="return false;"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22250%22%3E%3Crect fill=%23fff5f7 width=%22200%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%23ffb6d9%3ERecuerdo%3C/text%3E%3C/svg%3E'">
+                        <div class="polaroid-label">M.U.T.</div>
+                    </div>
+                </div>
+
+                <!-- Recuerdo 7 -->
+                <div class="memory-card fade-in-up" style="animation-delay: 1.6s;">
+                    <div class="memory-polaroid">
+                        <img src="{{ url_for('static', filename='img/recuerdo7.jpeg') }}" 
+                             alt="Recuerdo 7"
+                             draggable="false" ondragstart="return false;"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22250%22%3E%3Crect fill=%23fff5f7 width=%22200%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%23ffb6d9%3ERecuerdo%3C/text%3E%3C/svg%3E'">
+                        <div class="polaroid-label">Mirador Jardin Japones</div>
+                    </div>
+                </div>
+
+                <!-- Recuerdo 8 -->
+                <div class="memory-card fade-in-up" style="animation-delay: 1.8s;">
+                    <div class="memory-polaroid">
+                        <img src="{{ url_for('static', filename='img/recuerdo8.jpeg') }}" 
+                             alt="Recuerdo 8"
+                             draggable="false" ondragstart="return false;"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22250%22%3E%3Crect fill=%23fff5f7 width=%22200%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%23ffb6d9%3ERecuerdo%3C/text%3E%3C/svg%3E'">
+                        <div class="polaroid-label">Jardin Japones</div>
+                    </div>
+                </div>
+
+                <!-- Recuerdo 9 -->
+                <div class="memory-card fade-in-up" style="animation-delay: 2s;">
+                    <div class="memory-polaroid">
+                        <img src="{{ url_for('static', filename='img/recuerdo9.jpeg') }}" 
+                             alt="Recuerdo 9"
+                             draggable="false" ondragstart="return false;"
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22250%22%3E%3Crect fill=%23fff5f7 width=%22200%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%23ffb6d9%3ERecuerdo%3C/text%3E%3C/svg%3E'">
+                        <div class="polaroid-label">Cerro San Cristobal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== SECCIÓN TIMELINE ====================  -->
+    <section id="timeline" class="timeline-section">
+        <div class="section-header">
+            <h2 class="section-title">Nuestra Historia</h2>
+            <div class="title-underline"></div>
+        </div>
+        
+        <div class="timeline-container">
+            {% for milestone in data.milestones %}
+            <div class="timeline-item fade-in-up" data-delay="{{ (loop.index0 * 0.2) | round(2) }}">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-icon">{{ milestone.icono }}</span>
+                </div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">{{ milestone.titulo }}</h3>
+                    <p class="timeline-date">
+                        <i class="far fa-calendar"></i> {{ milestone.fecha }}
+                    </p>
+                    <p class="timeline-description">{{ milestone.descripcion }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <!-- ==================== SECCIÓN FINAL EMOCIONAL ====================  -->
+    <section id="final" class="final-section">
+        <div class="final-content">
+            <!-- Partículas de luz especiales -->
+            <div class="light-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            
+            <!-- Texto final con animación -->
+            <div class="final-message-wrapper">
+                <p class="final-message-line fade-in-up" style="animation-delay: 0.2s;">
+                    {{ data.mensajeFinal_parte1 }}
+                </p>
+                <p class="final-message-line fade-in-up" style="animation-delay: 0.6s;">
+                    {{ data.mensajeFinal_parte2 }}
+                </p>
+                <p class="final-message-line fade-in-up" style="animation-delay: 1s;">
+                    {{ data.mensajeFinal_parte3 }}
+                </p>
+            </div>
+            
+            <!-- Elemento decorativo final -->
+            <div class="final-heart fade-in-up" style="animation-delay: 1.4s;">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== FOOTER ====================  -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Hecho con <i class="fas fa-heart"></i> para usted</p>
+            <p class="footer-date">{{ data.parejas.el }} & {{ data.parejas.ella }}</p>
+        </div>
+    </footer>
+    
+    <!-- ==================== AUDIO ====================  -->
+    <audio id="background-music" loop preload="auto" autoplay playsinline>
+        <source src="{{ url_for('static', filename='music/romantic.mp3') }}" type="audio/mpeg">
+    </audio>
+    
+    <!-- ==================== SCRIPTS ====================  -->
+    <!-- GSAP para animaciones suaves -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- tsParticles para partículas -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    
+    <!-- AOS para efectos al scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Scripts personalizados -->
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/interactions.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/music.js') }}"></script>
+</body>
+</html>

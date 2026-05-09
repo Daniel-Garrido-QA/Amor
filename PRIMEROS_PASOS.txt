@@ -1,0 +1,213 @@
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║        💕 PÁGINA ROMÁNTICA - PRIMEROS PASOS 💕            ║
+║                                                            ║
+║  Una carta interactiva de amor hecha con Flask            ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+
+
+PASO 1️⃣ : EJECUTAR LA PÁGINA
+═══════════════════════════════════════════════════════════════
+
+🖥️ WINDOWS:
+  1. Ve a la carpeta del proyecto
+  2. Haz doble clic en: run.bat
+  3. Espera a que se instale todo
+  4. ¡Abre http://localhost:5000 en tu navegador!
+
+🍎 macOS / 🐧 LINUX:
+  1. Abre Terminal en la carpeta del proyecto
+  2. Escribe: chmod +x run.sh && ./run.sh
+  3. Espera a que se instale todo
+  4. ¡Abre http://localhost:5000 en tu navegador!
+
+
+PASO 2️⃣ : PERSONALIZAR MENSAJES
+═══════════════════════════════════════════════════════════════
+
+📝 Para cambiar nombres y textos:
+
+  Abre: app/app.py
+  Busca: romantic_data = {
+  
+  Cambia:
+    "el": "TU NOMBRE ❤️",
+    "ella": "SU NOMBRE 💕"
+    
+  Y personaliza todos los mensajes que veas
+
+
+PASO 3️⃣ : AGREGAR TUS FOTOS
+═══════════════════════════════════════════════════════════════
+
+🖼️ Para mostrar vuestras fotos:
+
+  1. Descarga o selecciona tus fotos
+  2. Colócalas en: app/static/img/
+  3. Renómbralas así:
+     - nosotros.jpg      (foto principal)
+     - recuerdo1.jpg     (galería)
+     - recuerdo2.jpg     (galería)
+     - recuerdo3.jpg     (galería)
+  
+  ✨ Si no añades fotos, aparecerán placeholders rosa
+
+
+PASO 4️⃣ : AGREGAR MÚSICA
+═══════════════════════════════════════════════════════════════
+
+🎵 Para añadir música romántica:
+
+  1. Descarga una canción MP3 (sin copyright)
+     Sitios: pixabay.com/music/ o freemusicarchive.org
+  
+  2. Colócala en: app/static/music/
+  
+  3. Renómbrala como: romantic.mp3
+  
+  ✨ Se reproducirá cuando hagas clic en el botón 🎵
+
+
+PASO 5️⃣ : CAMBIAR COLORES
+═══════════════════════════════════════════════════════════════
+
+🎨 Para cambiar la paleta de colores:
+
+  Abre: app/static/css/main.css
+  Busca: :root {
+  
+  Cambia los colores (líneas 10-12):
+    --color-primary: #ff6b9d;      ← Rosa principal
+    --color-secondary: #ee5a6f;    ← Rojo romántico
+    --color-accent: #ffb6d9;       ← Rosa pastel
+  
+  Puedes usar colores HEX: https://htmlcolorcodes.com/
+
+
+PASO 6️⃣ : PERSONALIZAR TIMELINE
+═══════════════════════════════════════════════════════════════
+
+📅 Para cambiar los hitos de vuestra historia:
+
+  Abre: app/app.py
+  Busca: "milestones": [
+  
+  Cambia cada bloque con:
+    "titulo": "Vuestro primer momento",
+    "fecha": "15 de mayo de 2024",
+    "icono": "✉️",
+    "descripcion": "Tu descripción aquí"
+
+
+═══════════════════════════════════════════════════════════════
+
+
+CONTROLES EN LA PÁGINA:
+
+🎵 Botón de música: Activa/desactiva la canción
+❤️  Clic en corazón: Efecto especial con partículas
+🖱️  Hover en fotos: Zoom y efectos suaves
+⌨️  Teclado:
+    + (plus) = Aumentar volumen
+    - (menos) = Disminuir volumen
+    M = Activar/desactivar música
+
+
+═══════════════════════════════════════════════════════════════
+
+
+ESTRUCTURA DE CARPETAS:
+
+Amor/
+├── app/
+│   ├── app.py                    ← EDITA ESTO (mensajes)
+│   ├── templates/
+│   │   └── index.html            ← La página HTML
+│   └── static/
+│       ├── css/                  ← Estilos
+│       ├── js/                   ← Scripts
+│       ├── img/                  ← TUS FOTOS AQUÍ
+│       └── music/                ← TU MÚSICA AQUÍ
+├── requirements.txt              ← Dependencias
+├── README.md                     ← Documentación completa
+├── INICIO_RAPIDO.md             ← Guía rápida
+├── PERSONALIZACION.js           ← Guía de cambios
+└── run.bat / run.sh             ← Scripts para ejecutar
+
+
+═══════════════════════════════════════════════════════════════
+
+
+SOLUCIÓN DE PROBLEMAS:
+
+❌ "Puerto 5000 ya está en uso"
+   → Cambia el puerto en app.py línea final
+   → O cierra otras aplicaciones usando ese puerto
+
+❌ "Las imágenes no se cargan"
+   → Verifica que estén en app/static/img/
+   → Los nombres deben ser exactos
+
+❌ "La música no se reproduce"
+   → Colócala en app/static/music/romantic.mp3
+   → Haz clic en el botón 🎵 para activarla
+
+❌ "Errores en consola"
+   → Abre F12 en navegador → Consola
+   → Copia el error y búscalo en Google
+
+
+═══════════════════════════════════════════════════════════════
+
+
+DOCUMENTACIÓN COMPLETA:
+
+📖 Lee README.md para información detallada
+💡 Lee PERSONALIZACION.js para más opciones
+⚡ Lee INICIO_RAPIDO.md para ejecución rápida
+
+
+═══════════════════════════════════════════════════════════════
+
+
+DESPLEGAR EN INTERNET (Opcional):
+
+Cuando quieras que la página esté en internet:
+
+🆓 GRATIS: 
+  - PythonAnywhere.com (mejor opción gratis)
+  - Heroku.com
+  - Replit.com
+
+💰 PAGO:
+  - DigitalOcean
+  - AWS
+  - Google Cloud
+
+
+═══════════════════════════════════════════════════════════════
+
+
+¡LISTO! 🎉
+
+Tu página romántica está lista. Solo debes:
+1. ✅ Ejecutar run.bat o run.sh
+2. ✅ Agregar tus fotos en app/static/img/
+3. ✅ Cambiar los mensajes en app/app.py
+4. ✅ Agregar tu música en app/static/music/
+5. ✅ Cambiar colores si lo deseas
+
+¡Que disfrutes creando momentos románticos! 💕✨
+
+
+═══════════════════════════════════════════════════════════════
+
+Si tienes preguntas, revisa:
+- README.md (documentación completa)
+- PERSONALIZACION.js (guía de cambios)
+- INICIO_RAPIDO.md (ejecución rápida)
+
+Hecho con ❤️ para alguien especial.
+
+═══════════════════════════════════════════════════════════════

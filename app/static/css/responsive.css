@@ -1,0 +1,607 @@
+/* =====================================================
+   DISEÑO RESPONSIVO
+   Estilos para tablets, móviles y pantallas grandes
+   ===================================================== */
+
+/* ==================== TABLETS (768px - 1024px) ====================  */
+
+@media (max-width: 1024px) {
+    .nav-menu {
+        gap: var(--spacing-lg);
+    }
+
+    .section-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-message {
+        font-size: 1.3rem;
+    }
+
+    .memories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-lg);
+    }
+
+    .memory-photo-wrapper {
+        width: 280px;
+        height: 320px;
+    }
+
+    .final-message-line {
+        font-size: 1.5rem;
+    }
+
+    .timeline-container::before {
+        left: 20px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        padding-left: var(--spacing-lg);
+        padding-right: 0;
+        max-width: none;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .timeline-dot {
+        left: 10px;
+    }
+
+    .timeline-icon {
+        left: 10px;
+    }
+}
+
+/* ==================== MÓVILES GRANDES (480px - 768px) ====================  */
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+        --spacing-2xl: 2.5rem;
+    }
+
+    html {
+        scroll-padding-top: 70px;
+    }
+
+    /* Navbar */
+    .navbar {
+        height: 70px;
+    }
+
+    .nav-container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        gap: 0;
+        padding: var(--spacing-lg) 0;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        padding: var(--spacing-md) 0;
+        border-bottom: 1px solid rgba(255, 107, 157, 0.1);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    /* Hero */
+    .hero-section {
+        padding: var(--spacing-lg);
+        min-height: 70vh;
+    }
+
+    .heart-beat {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .hero-message {
+        font-size: 1.1rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    /* Sección de recuerdos */
+    .memories-section {
+        padding: var(--spacing-lg);
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .memory-photo-wrapper {
+        width: 100%;
+        max-width: 300px;
+        height: 350px;
+    }
+
+    .memories-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .memory-polaroid {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    /* Timeline */
+    .timeline-section {
+        padding: var(--spacing-lg);
+    }
+
+    .timeline-container::before {
+        left: 18px;
+    }
+
+    .timeline-item {
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+        margin-bottom: calc(var(--spacing-xl) + 0.75rem);
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .timeline-marker {
+        min-width: 42px;
+        padding-top: 0.85rem;
+    }
+
+    .timeline-dot {
+        width: 14px;
+        height: 14px;
+        border-width: 3px;
+        left: 9px;
+        top: 0.85rem;
+    }
+
+    .timeline-icon {
+        font-size: 1.35rem;
+        left: 9px;
+        top: 0.35rem;
+    }
+
+    .timeline-content {
+        max-width: none;
+        box-sizing: border-box;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(255, 107, 157, 0.28);
+        border-radius: 16px;
+        padding: var(--spacing-md) var(--spacing-md) calc(var(--spacing-md) + 0.15rem);
+        box-shadow: 0 4px 14px rgba(238, 90, 111, 0.1), 0 1px 0 rgba(255, 255, 255, 0.85) inset;
+    }
+
+    .timeline-title {
+        font-size: 1.05rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .timeline-date {
+        font-size: 0.85rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .timeline-description {
+        font-size: 0.925rem;
+    }
+
+    /* Final */
+    .final-section {
+        padding: var(--spacing-lg);
+        min-height: auto;
+    }
+
+    .final-message-line {
+        font-size: 1.2rem;
+    }
+
+    .final-heart {
+        font-size: 2.5rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--spacing-lg);
+    }
+
+    .footer-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== MÓVILES PEQUEÑOS (320px - 480px) ====================  */
+
+@media (max-width: 480px) {
+    :root {
+        --spacing-md: 1rem;
+        --spacing-lg: 1.2rem;
+        --spacing-xl: 1.5rem;
+        --spacing-2xl: 2rem;
+    }
+
+    /* Navbar */
+    .navbar {
+        height: 60px;
+    }
+
+    .nav-container {
+        padding: 0 0.5rem;
+    }
+
+    .nav-logo span {
+        display: none;
+    }
+
+    .nav-logo {
+        font-size: 1rem;
+    }
+
+    .nav-menu {
+        top: 60px;
+    }
+
+    .music-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    /* Hero */
+    .hero-section {
+        padding: var(--spacing-md);
+        min-height: 60vh;
+    }
+
+    .hero-section::before {
+        width: 300px;
+        height: 300px;
+        right: -50%;
+    }
+
+    .heart-beat {
+        width: 100px;
+        height: 100px;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .title-word {
+        margin: 0 4px;
+    }
+
+    .hero-message {
+        font-size: 0.95rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .scroll-indicator {
+        font-size: 0.8rem;
+    }
+
+    /* Recuerdos */
+    .memories-section {
+        padding: var(--spacing-md);
+    }
+
+    .section-header {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .memory-photo-wrapper {
+        width: 100%;
+        max-width: 250px;
+        height: 290px;
+    }
+
+    .memory-polaroid {
+        max-width: 160px;
+        padding: 10px;
+    }
+
+    .memory-polaroid img {
+        height: 70%;
+    }
+
+    .polaroid-label {
+        font-size: 0.8rem;
+        margin-top: 8px;
+    }
+
+    .memory-description {
+        font-size: 0.95rem;
+        margin-top: var(--spacing-md);
+    }
+
+    /* Timeline: mantener tarjetas y buen aire también en pantallas muy pequeñas */
+    .timeline-section {
+        padding: var(--spacing-md);
+    }
+
+    .timeline-container {
+        margin: 0;
+    }
+
+    .timeline-container::before {
+        left: 15px;
+    }
+
+    .timeline-item {
+        margin-bottom: calc(var(--spacing-xl) + 0.65rem);
+    }
+
+    .timeline-marker {
+        min-width: 38px;
+        padding-top: 0.8rem;
+    }
+
+    .timeline-dot {
+        width: 13px;
+        height: 13px;
+        border-width: 2px;
+        left: 11px;
+        top: 0.8rem;
+    }
+
+    .timeline-icon {
+        font-size: 1.15rem;
+        left: 11px;
+        top: 0.35rem;
+    }
+
+    .timeline-content {
+        padding: var(--spacing-sm) calc(var(--spacing-sm) + 0.35rem)
+            calc(var(--spacing-sm) + 0.2rem);
+        max-width: none;
+        box-sizing: border-box;
+    }
+
+    .timeline-title {
+        font-size: 0.98rem;
+    }
+
+    .timeline-date {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .timeline-description {
+        font-size: 0.88rem;
+    }
+
+    /* Final */
+    .final-section {
+        padding: var(--spacing-md);
+        min-height: auto;
+    }
+
+    .final-message-wrapper {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .final-message-line {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .final-heart {
+        font-size: 2rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--spacing-md);
+    }
+
+    .footer-content p {
+        font-size: 0.85rem;
+        margin: 0.5rem 0;
+    }
+}
+
+/* ==================== ULTRA PEQUEÑO (< 320px) ====================  */
+
+@media (max-width: 320px) {
+    .hero-title {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .memory-photo-wrapper {
+        max-width: 200px;
+        height: 240px;
+    }
+
+    .final-message-line {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== PANTALLAS ULTRAANCHA (> 1920px) ====================  */
+
+@media (min-width: 1921px) {
+    .section-title {
+        font-size: 4.5rem;
+    }
+
+    .hero-title {
+        font-size: 5rem;
+    }
+
+    .hero-message {
+        font-size: 1.8rem;
+    }
+
+    .memory-photo-wrapper {
+        width: 450px;
+        height: 520px;
+    }
+
+    .memories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .final-message-line {
+        font-size: 2.5rem;
+    }
+}
+
+/* ==================== ESTILOS PARA IMPRESORA ====================  */
+
+@media print {
+    .navbar,
+    .scroll-indicator,
+    .nav-controls {
+        display: none;
+    }
+
+    .footer {
+        position: static;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* ==================== ORIENTACIÓN LANDSCAPE ====================  */
+
+@media (orientation: landscape) and (max-height: 600px) {
+    .hero-section {
+        min-height: auto;
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+
+    .heart-beat {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-message {
+        font-size: 1rem;
+    }
+
+    .scroll-indicator {
+        margin-top: var(--spacing-lg);
+    }
+}
+
+/* ==================== TOUCH DEVICES ====================  */
+
+@media (hover: none) and (pointer: coarse) {
+    .nav-link::after {
+        display: none;
+    }
+
+    .memory-label {
+        opacity: 1;
+        transform: translateX(-50%);
+    }
+
+    .timeline-dot {
+        box-shadow: 0 0 0 6px rgba(255, 107, 157, 0.2);
+    }
+
+    .memory-polaroid:hover {
+        transform: rotateZ(-2deg);
+    }
+}
+
+/* ==================== CONFIGURACIÓN DE FUENTES ====================  */
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1920px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+/* ==================== ANIMACIONES REDUCIDAS ====================  */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ==================== FOCO EN TECLADO ====================  */
+
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+@media (hover: none) {
+    :focus-visible {
+        outline: 2px solid var(--color-primary);
+    }
+}

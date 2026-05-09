@@ -1,0 +1,420 @@
+/* =====================================================
+   ANIMACIONES AVANZADAS CON GSAP
+   Efectos suaves y fluidos para la página romántica
+   ===================================================== */
+
+/* ==================== ANIMACIÓN DE LATIDO DEL CORAZÓN ====================  */
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.15);
+    }
+    30% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.12);
+    }
+    60% {
+        transform: scale(1);
+    }
+}
+
+#main-heart {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* ==================== ANIMACIÓN DE FADE IN ====================  */
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ==================== ANIMACIÓN DE ENTRADA ====================  */
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== ANIMACIÓN DE LEVITACIÓN ====================  */
+
+@keyframes levitate {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ==================== EFECTO DE BRILLO ====================  */
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 107, 157, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 107, 157, 0.7);
+    }
+}
+
+/* ==================== ROTACIÓN SUAVE ====================  */
+
+@keyframes softRotate {
+    0%, 100% {
+        transform: rotateZ(0deg);
+    }
+    50% {
+        transform: rotateZ(2deg);
+    }
+}
+
+/* ==================== ANIMACIÓN DE ONDA ====================  */
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(10px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+}
+
+/* ==================== ANIMACIÓN DE PULSE ====================  */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ==================== ANIMACIÓN DE SHIMMER ====================  */
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* ==================== ANIMACIÓN DE BOUNCE ====================  */
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ==================== ANIMACIÓN DE FLOAT ====================  */
+
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+        transform: translateY(-40px) translateX(0px);
+    }
+    75% {
+        transform: translateY(-20px) translateX(-10px);
+    }
+}
+
+/* ==================== ANIMACIÓN DE SWING ====================  */
+
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(0deg);
+        transform-origin: center top;
+    }
+    50% {
+        transform: rotate(3deg);
+        transform-origin: center top;
+    }
+}
+
+/* ==================== EFECTO PARALLAX ====================  */
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ==================== EFECTOS DE HOVER ====================  */
+
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
+}
+
+/* ==================== EFECTO DE DISTORSIÓN SUAVE ====================  */
+
+@keyframes softDistortion {
+    0%, 100% {
+        filter: blur(0px);
+    }
+    50% {
+        filter: blur(0.5px);
+    }
+}
+
+/* ==================== ANIMACIÓN STAGGERED ====================  */
+
+.stagger-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0s; }
+.stagger-item:nth-child(2) { animation-delay: 0.1s; }
+.stagger-item:nth-child(3) { animation-delay: 0.2s; }
+.stagger-item:nth-child(4) { animation-delay: 0.3s; }
+.stagger-item:nth-child(5) { animation-delay: 0.4s; }
+.stagger-item:nth-child(6) { animation-delay: 0.5s; }
+
+/* ==================== EFECTO GLASSMORPHISM ====================  */
+
+.glassmorphic {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== ANIMACIÓN DE LÍNEA ====================  */
+
+@keyframes drawLine {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ==================== EFECTO NEON ====================  */
+
+@keyframes neon-glow {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 0 0 10px rgba(255, 107, 157, 0.4);
+    }
+    20%, 24%, 55% {
+        text-shadow: 0 0 20px rgba(255, 107, 157, 0.8),
+                     0 0 30px rgba(255, 107, 157, 0.6);
+    }
+}
+
+/* ==================== ANIMACIÓN DE TEXTO MECANOGRAFIADO ====================  */
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: var(--color-primary);
+    }
+}
+
+.typing-text {
+    overflow: hidden;
+    border-right: 2px solid var(--color-primary);
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* ==================== ANIMACIÓN MORPHING ====================  */
+
+@keyframes morph {
+    0%, 100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+}
+
+/* ==================== EFECTOS DE SCROLL ====================  */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ==================== EFECTO DE DESENFOQUE PROGRESIVO ====================  */
+
+@keyframes blurIn {
+    from {
+        filter: blur(10px);
+        opacity: 0;
+    }
+    to {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* ==================== ROTACIÓN EN 3D ====================  */
+
+@keyframes flip3D {
+    0% {
+        transform: perspective(600px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(600px) rotateY(360deg);
+    }
+}
+
+/* ==================== EFECTO DE VIBRACIÓN ====================  */
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* ==================== EFECTO DE ZOOM ====================  */
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ==================== EFECTO DE EXPANSIÓN ====================  */
+
+@keyframes expand {
+    from {
+        width: 0;
+        height: 0;
+    }
+    to {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ==================== EFECTO DE RELLENO ====================  */
+
+@keyframes fillAnimation {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: -100% 0;
+    }
+}
+
+/* ==================== EFECTOS DE ENTRADA CONTEXTUALES ====================  */
+
+@media (prefers-reduced-motion: no-preference) {
+    body {
+        scroll-behavior: smooth;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==================== EFECTOS DE LIGHT ====================  */
+
+.light-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.light-effect::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
+    animation: rotate-light 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate-light {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
