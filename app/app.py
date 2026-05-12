@@ -109,31 +109,40 @@ def error_servidor(error):
 def _ip_en_lan():
     """IP para abrir desde otro dispositivo en la misma WiFi (no usar localhost en el móvil)."""
     try:
+        # Método 1: Usar socket UDP (no requiere conexión real)
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.settimeout(0.5)
+        s.settimeout(1)
         s.connect(("8.8.8.8", 80))
         ip = s.getsockname()[0]
         s.close()
-        return ip
+        # Filtrar IPs locales válidas
+        if ip and not ip.startswith('127.'):
+            return ip
+    except (OSError, socket.timeout):
+        pass
+    
+    # Método 2: Obtener hostname y resolver
+    try:
+        hostname = socket.gethostname()
+        ip = socket.gethostbyname(hostname)
+        if ip and not ip.startswith('127.'):
+            return ip
     except OSError:
-        return None
+        pass
+    
+    return None
 
 
 if __name__ == '__main__':
-    # host=0.0.0.0: escucha en la red local; el móvil entra por http://TU_IP_PC:puerto
+    # host=127.0.0.1: solo en localhost (cada persona lo abre en su máquina)
     puerto = int(os.environ.get("PORT", "5000"))
-    host = os.environ.get("FLASK_RUN_HOST", "0.0.0.0")
+    host = os.environ.get("FLASK_RUN_HOST", "127.0.0.1")
     print("╔════════════════════════════════════════╗")
     print("║       TE AMO MI PRINCESITA - A & D     ║")
     print("║   💕 Una carta interactiva de amor 💕  ║")
     print("╚════════════════════════════════════════╝")
-    print(f"\n  En esta PC:  http://127.0.0.1:{puerto}/")
-    lan = _ip_en_lan()
-    if lan:
-        print(f"  En el celu:  http://{lan}:{puerto}/  (misma WiFi)\n")
-    else:
-        print("  En el celu:  http://<IP-de-esta-PC>:%s/  (misma WiFi)\n" % puerto)
-    print("  Si no carga: firewall de Windows → permitir Python en red privada.\n")
+    print(f"\n  Abre en tu navegador:  http://127.0.0.1:{puerto}/")
+    print("  (O también: http://localhost:%s/)\n" % puerto)
     print("  Presiona Ctrl+C para detener el servidor\n")
 
     app.run(host=host, port=puerto, debug=app.config.get("DEBUG", False))
