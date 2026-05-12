@@ -7,11 +7,13 @@ Descripción: Experiencia web interactiva, emocional y visualmente impactante
 from flask import Flask, render_template, jsonify
 import os
 import socket
+import sys
+import traceback
 
 # Inicializar la aplicación Flask
 app = Flask(__name__, 
-            template_folder='templates',
-            static_folder='static')
+            template_folder=os.path.join(os.path.dirname(__file__), 'templates'),
+            static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 
 # Configuración (FLASK_DEBUG=0 | 1 en producción)
 app.config['DEBUG'] = os.environ.get('FLASK_DEBUG', '1').lower() in ('1', 'true', 'yes')
@@ -84,7 +86,12 @@ romantic_data = {
 @app.route('/')
 def index():
     """Ruta principal que renderiza la página romántica"""
-    return render_template('index.html', data=romantic_data)
+    try:
+        return render_template('index.html', data=romantic_data)
+    except Exception as e:
+        print(f"ERROR en ruta '/': {str(e)}", file=sys.stderr)
+        traceback.print_exc()
+        return f"Error: {str(e)}", 500
 
 @app.route('/api/datos')
 def obtener_datos():
@@ -94,12 +101,20 @@ def obtener_datos():
 @app.route('/api/milestones')
 def obtener_milestones():
     """Endpoint API para obtener los hitos románticos"""
-    return jsonify(romantic_data['milestones'])
+    try:
+        return render_template('index.html', data=romantic_data), 404
+    except:
+        return jsonify({"status": "error", "mensaje": "Página no encontrada"}), 404
 
-@app.errorhandler(404)
-def pagina_no_encontrada(error):
-    """Manejo de errores 404"""
-    return render_template('index.html', data=romantic_data), 404
+@app.errorhandler(500)
+def error_servidor(error):
+    """Manejo de errores 500"""
+    print(f"ERROR 500: {str(error)}", file=sys.stderr)
+    traceback.print_exc()
+    try:
+        return render_template('index.html', data=romantic_data), 500
+    except:
+        return jsonify({"status": "error", "mensaje": "Error interno del servidor"}), 404
 
 @app.errorhandler(500)
 def error_servidor(error):
