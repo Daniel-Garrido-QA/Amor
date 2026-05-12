@@ -29,7 +29,7 @@ function initHeroAnimations() {
     const heartBeat = document.getElementById('main-heart');
     if (heartBeat) {
         timeline.from(heartBeat, {
-            duration: 0.8,
+            duration: 1.05,
             scale: 0,
             opacity: 0,
             rotation: -180,
@@ -47,8 +47,8 @@ function initHeroAnimations() {
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.6,
-                ease: "back.out",
+                duration: 0.78,
+                ease: "power2.out",
             },
             0.2 + index * 0.15
         );
@@ -56,25 +56,25 @@ function initHeroAnimations() {
 
     // Animar mensaje
     timeline.from('.hero-message', {
-        duration: 0.8,
-        y: 30,
+        duration: 1,
+        y: 22,
         opacity: 0,
-        ease: "power2.out"
+        ease: "sine.out"
     }, 1.2);
 
     // Animar indicador de scroll
     timeline.from('.scroll-indicator', {
-        duration: 0.8,
-        y: -30,
+        duration: 0.95,
+        y: -18,
         opacity: 0,
-        ease: "power2.out"
+        ease: "sine.out"
     }, 1.5);
 
     // Animación continua del indicador de scroll
     gsap.to('.arrow span', {
-        duration: 1.5,
-        y: 10,
-        opacity: 0.3,
+        duration: 1.9,
+        y: 8,
+        opacity: 0.35,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut"
@@ -83,7 +83,7 @@ function initHeroAnimations() {
     // Brillo del corazón en bucle: va aparte del timeline para no marcar duración ∞
     if (heartBeat) {
         gsap.to(heartBeat, {
-            duration: 2,
+            duration: 2.8,
             boxShadow: [
                 "0 0 20px rgba(255, 107, 157, 0.4)",
                 "0 0 40px rgba(255, 107, 157, 0.7)",
@@ -110,10 +110,10 @@ function initScrollAnimations() {
                 toggleActions: "play none none reverse",
                 markers: false
             },
-            duration: 0.8,
-            y: 50,
+            duration: 1.05,
+            y: 34,
             opacity: 0,
-            ease: "power2.out"
+            ease: "sine.out"
         });
     });
 
@@ -162,10 +162,10 @@ function initMemoriesAnimations() {
                 start: "top 60%",
                 toggleActions: "play none none reverse"
             },
-            duration: 1,
-            scale: 0.8,
+            duration: 1.15,
+            scale: 0.9,
             opacity: 0,
-            ease: "back.out"
+            ease: "power2.out"
         });
 
         // Efecto hover suave en la foto
@@ -173,17 +173,17 @@ function initMemoriesAnimations() {
         if (memoryPhoto) {
             memoryPhoto.addEventListener('mouseenter', () => {
                 gsap.to(memoryPhoto, {
-                    duration: 0.4,
-                    scale: 1.05,
-                    ease: "power2.out"
+                    duration: 0.55,
+                    scale: 1.03,
+                    ease: "sine.out"
                 });
             });
 
             memoryPhoto.addEventListener('mouseleave', () => {
                 gsap.to(memoryPhoto, {
-                    duration: 0.4,
+                    duration: 0.55,
                     scale: 1,
-                    ease: "power2.out"
+                    ease: "sine.out"
                 });
             });
         }
@@ -198,30 +198,30 @@ function initMemoriesAnimations() {
                 start: "top 70%",
                 toggleActions: "play none none reverse"
             },
-            duration: 0.8,
-            y: 40,
+            duration: 1,
+            y: 28,
             opacity: 0,
-            rotation: -5,
-            ease: "back.out",
+            rotation: -3,
+            ease: "power2.out",
             delay: index * 0.15
         });
 
         // Efecto al pasar el mouse
         card.addEventListener('mouseenter', () => {
             gsap.to(card, {
-                duration: 0.3,
-                y: -10,
-                rotation: -2,
-                ease: "power2.out"
+                duration: 0.45,
+                y: -7,
+                rotation: -1,
+                ease: "sine.out"
             });
         });
 
         card.addEventListener('mouseleave', () => {
             gsap.to(card, {
-                duration: 0.3,
+                duration: 0.45,
                 y: 0,
                 rotation: 0,
-                ease: "power2.out"
+                ease: "sine.out"
             });
         });
     });
@@ -241,10 +241,10 @@ function initTimelineAnimations() {
                 start: "top 80%",
                 toggleActions: "play none none reverse"
             },
-            duration: 0.8,
+            duration: 1,
             x: (index % 2 === 0) ? -50 : 50,
             opacity: 0,
-            ease: "power2.out"
+            ease: "sine.out"
         });
 
         // Efecto en el punto de la línea
@@ -252,19 +252,19 @@ function initTimelineAnimations() {
         if (timelineDot) {
             timelineDot.addEventListener('mouseenter', () => {
                 gsap.to(timelineDot, {
-                    duration: 0.3,
-                    scale: 1.3,
+                    duration: 0.45,
+                    scale: 1.18,
                     boxShadow: '0 0 0 15px rgba(255, 107, 157, 0.3)',
-                    ease: "power2.out"
+                    ease: "sine.out"
                 });
             });
 
             timelineDot.addEventListener('mouseleave', () => {
                 gsap.to(timelineDot, {
-                    duration: 0.3,
+                    duration: 0.45,
                     scale: 1,
                     boxShadow: '0 0 0 8px rgba(255, 107, 157, 0.2)',
-                    ease: "power2.out"
+                    ease: "sine.out"
                 });
             });
         }
@@ -279,9 +279,9 @@ function initTimelineAnimations() {
                 start: "top 85%",
                 toggleActions: "play none none reverse"
             },
-            duration: 0.6,
+            duration: 0.85,
             opacity: 0,
-            ease: "power2.out",
+            ease: "sine.out",
             delay: 0.2
         });
     });
@@ -303,11 +303,11 @@ function initFinalAnimations() {
                 start: "top 60%",
                 toggleActions: "play none none reverse"
             },
-            duration: 0.8,
-            y: 30,
+            duration: 1,
+            y: 18,
             opacity: 0,
-            ease: "back.out",
-            delay: index * 0.4
+            ease: "sine.out",
+            delay: index * 0.28
         });
     });
 
@@ -320,17 +320,17 @@ function initFinalAnimations() {
                 start: "top 60%",
                 toggleActions: "play none none reverse"
             },
-            duration: 0.8,
+            duration: 1,
             scale: 0,
             opacity: 0,
-            ease: "elastic.out(1.2, 0.5)",
+            ease: "power2.out",
             delay: 1.2
         });
 
         // Latido continuo del corazón final
         gsap.to(finalHeart, {
-            scale: 1.2,
-            duration: 0.6,
+            scale: 1.1,
+            duration: 1,
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut"
@@ -348,7 +348,7 @@ function initFinalAnimations() {
             opacity: 0,
             y: -100,
             x: (Math.random() - 0.5) * 100,
-            duration: 3,
+            duration: 4,
             repeat: -1,
             ease: "none",
             delay: index * 0.8

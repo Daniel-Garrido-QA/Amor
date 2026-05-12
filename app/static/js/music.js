@@ -10,7 +10,7 @@ class MusicController {
         this.audio = document.getElementById('background-music');
         this.toggleBtn = document.getElementById('music-toggle');
         this.isPlaying = false;
-        this.volume = 0.06;
+        this.volume = 0.01;
         this.playbackRate = 0.9;
         this.muted = false;
         this.userInteracted = false;

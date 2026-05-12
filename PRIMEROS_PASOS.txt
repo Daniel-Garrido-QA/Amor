@@ -32,8 +32,8 @@ PASO 2️⃣ : PERSONALIZAR MENSAJES
   Busca: romantic_data = {
   
   Cambia:
-    "el": "TU NOMBRE ❤️",
-    "ella": "SU NOMBRE 💕"
+    "el": "❤️ Daniel ",
+    "ella": "Anastasia ❤️"
     
   Y personaliza todos los mensajes que veas
 

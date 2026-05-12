@@ -5,7 +5,7 @@ REM =====================================================
 
 echo.
 echo ╔════════════════════════════════════════╗
-echo ║     Página Romántica - Flask App       ║
+echo ║     TE AMO MI PRINCESITA - A & D       ║
 echo ║   💕 Una carta interactiva de amor 💕  ║
 echo ╚════════════════════════════════════════╝
 echo.

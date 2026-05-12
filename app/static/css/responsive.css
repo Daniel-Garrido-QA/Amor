@@ -240,6 +240,12 @@
         font-size: 2.5rem;
     }
 
+    .final-message-below-heart {
+        font-size: 1.1rem;
+        padding: var(--spacing-sm) var(--spacing-lg);
+        margin-top: var(--spacing-lg);
+    }
+
     /* Footer */
     .footer {
         padding: var(--spacing-lg);
@@ -437,6 +443,13 @@
         font-size: 2rem;
     }
 
+    .final-message-below-heart {
+        font-size: 0.95rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+        margin-top: var(--spacing-md);
+        border-radius: 18px;
+    }
+
     /* Footer */
     .footer {
         padding: var(--spacing-md);
@@ -535,6 +548,11 @@
 
     .hero-message {
         font-size: 1rem;
+    }
+
+    .final-message-below-heart {
+        font-size: 0.9rem;
+        padding: var(--spacing-sm) var(--spacing-md);
     }
 
     .scroll-indicator {

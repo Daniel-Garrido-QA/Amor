@@ -163,6 +163,34 @@ function initHeartClick() {
 }
 
 /**
+ * Manejo del click en el recuadro final
+ */
+function initFinalMessageClick() {
+    const finalMessageBox = document.querySelector('.final-message-below-heart');
+    if (!finalMessageBox) return;
+
+    finalMessageBox.addEventListener('click', (event) => {
+        const rect = finalMessageBox.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        createFloatingHeartsInBox(finalMessageBox, x, y, 7);
+
+        gsap.fromTo(finalMessageBox, {
+            scale: 1
+        }, {
+            scale: 1.015,
+            duration: 0.28,
+            yoyo: true,
+            repeat: 1,
+            ease: 'sine.inOut'
+        });
+    });
+
+    finalMessageBox.style.cursor = 'pointer';
+}
+
+/**
  * Crear corazones flotantes al hacer clic
  */
 function createFloatingHearts(x, y, count = 5) {
@@ -193,6 +221,48 @@ function createFloatingHearts(x, y, count = 5) {
             opacity: 0,
             duration: 2,
             ease: "power2.out",
+            onComplete: () => heart.remove()
+        });
+    }
+}
+
+/**
+ * Crear corazones flotantes dentro de un recuadro específico
+ */
+function createFloatingHeartsInBox(container, x, y, count = 10) {
+    for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'click-heart-particle';
+        heart.innerHTML = '❤️';
+
+        const spreadX = (Math.random() - 0.5) * 42;
+        const spreadY = -(24 + Math.random() * 58);
+        const scale = 0.82 + Math.random() * 0.25;
+
+        heart.style.cssText = `
+            position: absolute;
+            left: ${x}px;
+            top: ${y}px;
+            font-size: ${0.85 + Math.random() * 0.55}rem;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 5;
+            filter: drop-shadow(0 6px 12px rgba(238, 90, 111, 0.24));
+            will-change: transform, opacity;
+        `;
+
+        container.appendChild(heart);
+
+        gsap.set(heart, { force3D: true });
+
+        gsap.to(heart, {
+            x: spreadX,
+            y: spreadY,
+            scale: scale,
+            rotation: (Math.random() - 0.5) * 24,
+            opacity: 0,
+            duration: 2.6 + Math.random() * 0.6,
+            ease: 'sine.out',
             onComplete: () => heart.remove()
         });
     }
@@ -371,6 +441,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initMobileMenu();
     initSmoothScroll();
     initHeartClick();
+    initFinalMessageClick();
     initScrollDetection();
     initAOS();
     respectReducedMotion();
